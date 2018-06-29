@@ -18,7 +18,7 @@
       </nav>
       <div class="userDetails">
         <p>Ankita Meshram</p>
-        <p>23109025801</p>
+        <p>23108925802</p>
         
       </div>
    </div>   
@@ -113,4 +113,7 @@ nav a:hover {
 	}
 }
 
+h2{
+	color:#261F38;
+}
 </style>
