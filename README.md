@@ -21,4 +21,7 @@ This is a banking overview made in vuejs
 
 #open the localhost url on browser (shown after successfull 'npm run serve')
 
+###**Test**
+
+#run 'npm run test:unit'
 
