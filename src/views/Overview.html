@@ -1,0 +1,51 @@
+<div class="hello">
+  <div class="accountDetails">
+     <h3>Account Overview</h3>
+     <div>
+        <h3>Bal: {{overviewDataJson.totalLoanAmount | formatAmount}}</h3>
+     </div>
+     <pie-chart></pie-chart>
+  </div>
+  <div class="detailContainer">
+     <div class="descriptionBlock">
+        <h3> My Accounts</h3>
+        <div>
+           <div id="userAccountBlock" class="investmentBlock accountBlock"  v-for="(data,index) in overviewDataJson.userAccountsInfo" :key='index'
+              v-on:click="openAccount(overviewDataJson.userAccountsInfo[index].accountnumber)">
+              <div class="investmentInnerBlock">
+                 <p>{{overviewDataJson.userAccountsInfo[index].accountnumber}}</p>
+                 <font-awesome-icon class="fal" icon="piggy-bank" />
+                 <span>{{overviewDataJson.userAccountsInfo[index].accounttype}}</span>
+              </div>
+              <p>{{overviewDataJson.userAccountsInfo[index].accountBal | formatAmount}}</p>
+           </div>
+        </div>
+     </div>
+     <div class="descriptionBlock">
+        <h3> Investments</h3>
+        <div>
+           <div class="investmentBlock" v-for="(data,index) in overviewDataJson.activeLoans" :key='index'>
+              <div class="investmentInnerBlock">
+                 <p>{{overviewDataJson.activeLoans[index].activeLoan}}</p>
+                 <font-awesome-icon class="fal" icon="exchange-alt" />
+                 <span>{{overviewDataJson.activeLoans[index].dueDate}}</span>
+              </div>
+              <p>{{overviewDataJson.activeLoans[index].invoiceAmount | formatAmount}}</p>
+           </div>
+        </div>
+     </div>
+     <div class="descriptionBlock">
+        <h3> Loans</h3>
+        <div>
+           <div class="investmentBlock" v-for="(data,index) in overviewDataJson.activePayment" :key='index'>
+              <div class="investmentInnerBlock">
+                 <p>{{overviewDataJson.activePayment[index].investmentPlan}}</p>
+                 <font-awesome-icon icon="credit-card" />
+                 <span>{{overviewDataJson.activePayment[index].dueDate}}</span>
+              </div>
+              <p>{{overviewDataJson.activePayment[index].invoiceAmount | formatAmount}}</p>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

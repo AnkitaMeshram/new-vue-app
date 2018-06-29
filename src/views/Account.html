@@ -1,0 +1,25 @@
+<div class="about">
+    <div class="small">
+        <h3>Balance overview</h3>
+       <line-chart :chart-data="datacollection"></line-chart>
+    </div>
+    <!--  <h1>{{ fromUrl }}</h1>
+       <h1> This is an about page</h1>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali...</p>-->
+    <h3>Transactions</h3>
+    <div v-if="transactionDataLength">
+       <div v-for="(data,index) in  transactionData.activePayments" :key='index'>
+          <div  v-if="transactionData.activePayments[index].id === fromUrl">
+             <div v-for="(paymentData,i) in transactionData.activePayments[index].paymentMonth" :key='i'>
+                <p class="paymentMonth"  >{{paymentData.month}}</p>
+                <div v-for="(payments,j) in paymentData.payments" :key='j' class="paymentMonthList">
+                   <div>{{payments.paymentDate}}</div>
+                   <div>{{payments.name}}</div>
+                   <div>{{payments.paidAmount | formatAmount }}</div>
+                   <div class="creditedAmount">{{payments.debitAmount | formatAmount }}</div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

@@ -1,31 +1,116 @@
 <template>
+
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div class="navBar">
+      <nav class="isDesktop">
+        <router-link to="/" title="Overview">Overview</router-link>
+        <router-link to="/account" title="Account">Account</router-link>
+        <router-link to="/investment" title="Investment">Investment</router-link>
+        <router-link to="/loan" title="Loan">Loan</router-link>
+        <router-link to="/info" title="Info">Info</router-link>
+      </nav>
+      <nav class="isMobile">
+        <router-link to="/" title="Overview"><font-awesome-icon class="fal" icon="chart-bar" /></router-link>
+        <router-link to="/account" title="Account"><font-awesome-icon class="fal" icon="piggy-bank" /></router-link>
+        <router-link to="/investment" title="Investment"><font-awesome-icon class="fal" icon="exchange-alt" /></router-link>
+        <router-link to="/loan" title="Loan"><font-awesome-icon icon="credit-card" /></router-link>
+        <router-link to="/info" title="Info"><font-awesome-icon icon="info" /></router-link>
+      </nav>
+      <div class="userDetails">
+        <p>Ankita Meshram</p>
+        <p>23109025801</p>
+        
+      </div>
+   </div>   
     <router-view/>
+ 
+   
   </div>
 </template>
 
+<script>
+
+
+export default {
+  name: 'app'
+}
+
+</script>
+
 <style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body {
+	font-family: 'Montserrat', sans-serif;
+	/*background: #26243E;*/
+	background: #fff;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
+	width: 90%;
+	margin: 0 auto;
+	color: #fff;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+h3 {
+	color: #fff;
+	padding: 5px;
+	margin: 5px;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+p {
+	color: #fff;
 }
+
+nav {
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	font-weight: bold;
+}
+
+nav a {
+	text-decoration: none;
+	color: #fff;
+}
+
+nav a:hover {
+	color: #42b983;
+}
+
+.navBar {
+	width: 100%;
+	background: #261F38;
+	margin: 0;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.userDetails {
+	margin-right: 14px;
+}
+
+.userDetails p {
+	margin: 0;
+	padding: 0;
+}
+
+.isDesktop {
+	display: flex;
+}
+
+.isMobile {
+	display: none;
+}
+
+@media (max-width: 700px) {
+	.isDesktop {
+		display: none;
+	}
+	.isMobile {
+		display: flex;
+	}
+}
+
 </style>
