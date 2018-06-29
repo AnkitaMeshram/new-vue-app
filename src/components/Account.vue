@@ -129,4 +129,7 @@ export default {
     word-break: break-all;
 }
 
+.accountView h3{
+    color:#261F38;
+}
 </style>

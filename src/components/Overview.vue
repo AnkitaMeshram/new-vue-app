@@ -88,6 +88,7 @@ li {
 
 .accountDetails h3 {
 	text-align: center;
+    color: #261F38;
 }
 
 .descriptionBlock {
